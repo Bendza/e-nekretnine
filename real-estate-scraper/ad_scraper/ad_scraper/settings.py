@@ -23,6 +23,13 @@ RANDOMIZE_DOWNLOAD_DELAY = True
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+MONGO_URI = 'mongodb://localhost:27017/'
+MONGO_DATABASE = 'eNekret'
+
+ITEM_PIPELINES = {
+    'ad_scraper.pipelines.MongoPipeline': 300,
+}
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
