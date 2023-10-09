@@ -12,13 +12,13 @@ function applyFilters() {
   const streetFilter = document.getElementById("street").value;
   const cityFilter = document.getElementById("city").value;
 
-  const priceFrom = document.getElementById("priceFrom").value;
-  const priceTo = document.getElementById("priceTo").value;
+  const priceFrom = parseFloat(document.getElementById("priceFrom").value) || undefined;
+  const priceTo = parseFloat(document.getElementById("priceTo").value) || undefined;
 
-  const surfaceFrom = document.getElementById("surfaceFrom").value;
-  const surfaceTo = document.getElementById("surfaceTo").value;
+  const surfaceFrom = parseFloat(document.getElementById("surfaceFrom").value) || undefined;
+  const surfaceTo = parseFloat(document.getElementById("surfaceTo").value) || undefined;
 
-  const dateFrom = document.getElementById("dateFrom").value;
+  const date = document.getElementById("dateFrom").value;
 
   // Construct the filters object
   const filters = {
@@ -26,17 +26,11 @@ function applyFilters() {
     objectType,
     street: streetFilter,
     city: cityFilter,
-    price: {
-      from: parseFloat(priceFrom) || undefined,
-      to: parseFloat(priceTo) || undefined,
-    },
-    surface: {
-      from: parseFloat(surfaceFrom) || undefined,
-      to: parseFloat(surfaceTo) || undefined,
-    },
-    date: {
-      from: dateFrom || undefined,
-    },
+    priceFrom,
+    priceTo,   
+    surfaceFrom,
+    surfaceTo,
+    date
   };
 
   // Send the filters to the main process for querying
@@ -62,7 +56,7 @@ ipcRenderer.on("data-response", (event, data) => {
                 <p class="text-sm truncate capitalize"><span class="font-semibold">Tip Objekta:</span> ${item.objectType}</p>
                 <p class="text-sm truncate"><span class="font-semibold">Površina:</span> ${item.surface} m²</p>
                 <p class="text-sm truncate"><span class="font-semibold">Grad:</span> ${item.city}</p>
-                <p class="text-sm truncate"><span class="font-semibold">Datum:</span> ${item.date}</p>
+                <p class="text-sm truncate"><span class="font-semibold">Datum:</span> ${formatDate(item.date)}</p>
                 <p class="text-sm truncate"><span class="font-semibold">Ulica:</span> ${item.street}</p>
                 <a href="${item.url}" target="_blank" class="text-blue-500 hover:underline self-start">View on ${item.host}</a>
             </div>
@@ -73,7 +67,17 @@ ipcRenderer.on("data-response", (event, data) => {
   itemsElement.innerHTML = htmlContent;
 });
 
-
+function formatDate(inputDate) {
+  const date = new Date(inputDate);
+  
+  const day = date.getDate();
+  const month = date.getMonth() + 1; 
+  const year = date.getFullYear();
+  
+  const formattedDate = `${day}.${month}.${year}`;
+  
+  return formattedDate;
+}
 
 function formatPrice(price) {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");

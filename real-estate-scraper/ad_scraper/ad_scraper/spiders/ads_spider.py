@@ -82,12 +82,12 @@ class AdsSpider(scrapy.Spider):
     def parse_surface(self, value):
         if value is None:
             return 0
-        
-        # Remove all non-digit characters, except for the dot (.)
-        stripped_value = re.sub(r'[^\d.]', '', value)
-        
+
+        # Remove all non-digit characters, except for the dot (.) and comma (,)
+        stripped_value = re.sub(r'[^\d.,]', '', value)
+
         try:
-            return float(stripped_value)
+            return float(stripped_value.replace(',', '.'))  # Replace comma with dot for proper float parsing
         except ValueError:
             return 0
 
@@ -124,7 +124,7 @@ class AdsSpider(scrapy.Spider):
                 pass
 
         # Convert to uniform format: YYYY-MM-DD
-        return date_object.strftime("%d-%m-%Y.") if date_object else date_string
+        return date_object.strftime("%Y-%m-%d.") if date_object else date_string
     
     
 
