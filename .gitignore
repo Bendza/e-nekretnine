@@ -4,3 +4,6 @@ __pycache__/
 *.egg-info/
 .vscode/
 scraperenv/
+node_modules
+.scrapy
+scraperenv

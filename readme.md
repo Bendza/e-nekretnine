@@ -1,45 +1,74 @@
-Real Estate Scraper with Scrapy and MongoDB
-Overview
-This project is a web scraping tool built with Scrapy to extract real estate listings from various websites. The scraped data is then stored in a MongoDB database for further analysis or integration into other applications.
+e-Nekretnine: Real Estate Scraper & Visualizer
+A comprehensive tool to extract real estate listings from various websites, store them in MongoDB, and visualize them using an Electron-based user interface.
 
+Table of Contents
 Features
-Supports multiple real estate websites with customizable configurations.
-Handles pagination to scrape data from multiple pages.
-Extracts key data fields such as URL, title, price, location, surface area, date, and image URL.
-Provides flexibility for adding new websites and adjusting scraping settings.
+Prerequisites
 Getting Started
-Follow these steps to get started with the project:
-
-Clone this repository to your local machine.
+Customization
+Contributing
+License
+Acknowledgments
+Features
+Web Scraping: Built on Scrapy, the scraper extracts real estate listings from multiple websites with ease.
+Data Storage: All scraped data is systematically stored in MongoDB.
+Electron UI: A user-friendly interface to visualize, filter, and analyze the scraped data.
+Configurability: Easy customization options to add new websites or adjust scraping settings.
+Robustness: Error handling, logging, and retry mechanisms ensure smooth data extraction.
+Prerequisites
+Python 3.x
+MongoDB
+Node.js and npm
+Getting Started
+Setting Up the Scraper
+Clone the Repository
 
 bash
 Copy code
 git clone "https://github.com/Bendza/e-nekretnine"
-Install the required dependencies.
+Navigate to the Project Directory
 
+bash
+Copy code
+cd e-nekretnine
+Activate the Python Environment
+
+bash
 Copy code
 pip install scrapy pymongo
-Configure the project settings in settings.py, including MongoDB connection details and other customization options.
+Adjust Configuration
 
-Define website configurations in website_configs.py for the websites you want to scrape.
+Update settings.py for MongoDB connection details and scraping configurations.
+Modify website_configs.py for target websites and their specific configurations.
+Run the Scraper
 
-Run the scraper using the following command:
-
+bash
 Copy code
 scrapy crawl ads_spider
-Scraped data will be stored in your MongoDB database, ready for further use.
 
+
+Setting Up the Electron UI
+Install the Required npm Packages
+
+bash
+Copy code
+npm install
+Run the Electron Application
+
+bash
+Copy code
+npm start
 Customization
-Add new websites and their configurations to website_configs.py.
-Adjust field selectors and XPath expressions in the website configurations to match the structure of the target websites.
-Fine-tune settings in settings.py for your specific scraping needs.
+Websites: Extend scraping capabilities by adding new websites to website_configs.py.
+Selectors: Tailor XPath/Selector expressions in the website configurations to adapt to changing website structures.
+UI Components: Customize the Electron-based interface to suit your visualization and interaction needs.
 Contributing
-Contributions are welcome! Feel free to open issues or submit pull requests to improve this project.
+We welcome contributions to e-Nekretnine! Please open an issue to discuss your ideas or submit a pull request with enhancements.
 
 License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
 Acknowledgments
-This project is based on Scrapy, a powerful web scraping framework.
-MongoDB is used for data storage.
-Happy scraping!
+Thanks to Scrapy for providing the web scraping framework.
+MongoDB serves as our dependable database solution.
+Electron powers the user interface, ensuring a smooth and intuitive experience.

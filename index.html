@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Prikaz Oglasa</title>
+  </head>
+
+  <body class="bg-gray-100 w-full">
+    <div class="container pl-8 mx-auto mt-4 flex w-full gap-6">
+      <!-- Filters Section -->
+      <div class="bg-white p-4 rounded-md shadow-md w-72 fixed">
+        
+        <!-- Street Filter -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-2">Pretraga:</label>
+          <input type="text" class="w-full p-2 border rounded-md" id="street" />
+        </div>
+
+        <!-- Ad Type Filter -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-2">Tip Oglasa:</label>
+          <select class="w-full p-2 border rounded-md" id="adType">
+            <option value="izdavanje">Izdavanje</option>
+            <option value="prodaja">Prodaja</option>
+          </select>
+        </div>
+
+        <!-- Object Type Filter -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-2">Tip Objekta:</label>
+          <select class="w-full p-2 border rounded-md" id="objectType">
+            <option value="stan">Stan</option>
+            <option value="kuca">Kuća</option>
+          </select>
+        </div>
+        
+        <!-- City Filter -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-2">Grad:</label>
+          <input type="text" class="w-full p-2 border rounded-md" id="city" />
+        </div>
+
+        <!-- Price Filter -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-2">Cena</label>
+          <input
+            type="number"
+            placeholder="Od"
+            class="mb-2 w-full p-2 border rounded-md"
+            id="priceFrom"
+          />
+          <input
+            type="number"
+            placeholder="Do"
+            class="w-full p-2 border rounded-md"
+            id="priceTo"
+          />
+        </div>
+
+        <!-- Surface Filter -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-2">Površina</label>
+          <input
+            type="number"
+            placeholder="Od"
+            class="mb-2 w-full p-2 border rounded-md"
+            id="surfaceFrom"
+          />
+          <input
+            type="number"
+            placeholder="Do"
+            class="w-full p-2 border rounded-md"
+            id="surfaceTo"
+          />
+        </div>
+
+        <!-- Date Filter -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-2">Datum:</label>
+          <input
+            type="date"
+            placeholder="Od"
+            class="mb-2 w-full p-2 border rounded-md"
+            id="dateFrom"
+          />
+        </div>
+
+        <button
+          class="w-full p-2 bg-blue-500 text-white rounded-md"
+          id="applyFilters"
+        >
+          Primeni Filtere
+        </button>
+      </div>
+
+      <!-- Ads Section -->
+      <div
+        class="w-4/5 ml-80 bg-white p-4 rounded-md shadow-md overflow-y-auto"
+        id="items"
+      >
+        <!-- Ads will be populated here -->
+      </div>
+    </div>
+
+    <script src="src/renderer.js"></script>
+  </body>
+</html>

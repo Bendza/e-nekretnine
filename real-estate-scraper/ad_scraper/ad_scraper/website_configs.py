@@ -1,9 +1,9 @@
 WEBSITE_CONFIGS = {
     'halooglasi.com': {
         'start_urls': [
-            {'url': 'https://www.halooglasi.com/nekretnine/prodaja-stanova/', 'max_pages': 780},
-            {'url': 'https://www.halooglasi.com/nekretnine/izdavanje-stanova/', 'max_pages': 220},
-            {'url': 'https://www.halooglasi.com/nekretnine/prodaja-kuca/', 'max_pages': 180},
+            {'url': 'https://www.halooglasi.com/nekretnine/prodaja-stanova/', 'max_pages': 100},
+            {'url': 'https://www.halooglasi.com/nekretnine/izdavanje-stanova/', 'max_pages': 100},
+            {'url': 'https://www.halooglasi.com/nekretnine/prodaja-kuca/', 'max_pages': 100},
             {'url': 'https://www.halooglasi.com/nekretnine/izdavanje-kuca/', 'max_pages': 25}
         ],
         'ad_selector': "//div[@class='product-item product-list-item Premium real-estates my-product-placeholder']",
@@ -21,7 +21,10 @@ WEBSITE_CONFIGS = {
     },
     'nekretnine.rs': {
         'start_urls': [
-            {'url': 'https://www.nekretnine.rs/stambeni-objekti/izdavanje-prodaja/lista/po-stranici/20/', 'max_pages': 210},
+            {'url': 'https://www.nekretnine.rs/stambeni-objekti/stanovi/izdavanje-prodaja/izdavanje/lista/po-stranici/20/', 'max_pages':100},
+            {'url': 'https://www.nekretnine.rs/stambeni-objekti/stanovi/izdavanje-prodaja/prodaja/lista/po-stranici/20/', 'max_pages':210},
+            {'url': 'https://www.nekretnine.rs/stambeni-objekti/kuce/izdavanje-prodaja/prodaja/lista/po-stranici/20/', 'max_pages':140},
+            {'url': 'https://www.nekretnine.rs/stambeni-objekti/kuce/izdavanje-prodaja/izdavanje/lista/po-stranici/20/', 'max_pages':13}
         ],
         'ad_selector': "//div[@class='row offer']",  # XPath selector for the ad container
         'fields': {
@@ -55,7 +58,11 @@ WEBSITE_CONFIGS = {
     },
     'beogradskioglasi.com': {
         'start_urls': [
-            {'url': 'https://www.beogradskioglasi.com/oglasi/nekretnine/', 'max_pages': 130}
+            {'url': 'https://www.beogradskioglasi.com/oglasi/prodaja-nekretnina/?property_type=stan|', 'max_pages': 26},
+            {'url': 'https://www.beogradskioglasi.com/oglasi/prodaja-nekretnina/?property_type=kuća|', 'max_pages': 33},
+            {'url': 'https://www.beogradskioglasi.com/oglasi/izdavanje-nekretnina/?property_type=stan|', 'max_pages': 27},
+            {'url': 'https://www.beogradskioglasi.com/oglasi/izdavanje-nekretnina/?property_type=kuća|', 'max_pages': 5},
+
         ],
         'ad_selector': "//div[@class='classified']",
         'pagination_pattern': '?page={page_number}',
@@ -105,7 +112,10 @@ WEBSITE_CONFIGS = {
         },
     },
     'nadjidom.com': {
-        'start_urls': [{'url': 'https://www.nadjidom.com/sr/nekretnine', 'max_pages': 2260}],
+        'start_urls': [{'url': 'https://www.nadjidom.com/sr/nekretnine/prodaja/kuce', 'max_pages': 380},
+                       {'url': 'https://www.nadjidom.com/sr/nekretnine/prodaja/stanovi', 'max_pages': 1260},
+                       {'url': 'https://www.nadjidom.com/sr/nekretnine/izdavanje/kuce', 'max_pages': 40},
+                       {'url': 'https://www.nadjidom.com/sr/nekretnine/izdavanje/stanovi', 'max_pages': 160}],
         'ad_selector': ".//div[contains(@class, 'estate-loop')]",
         'pagination_pattern': '&offset={offset}',
         'fields': {

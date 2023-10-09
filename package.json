@@ -1,0 +1,26 @@
+{
+  "name": "enekret",
+  "version": "1.0.0",
+  "description": "Real Estate Scraper with Scrapy and MongoDB\r Overview\r This project is a web scraping tool built with Scrapy to extract real estate listings from various websites. The scraped data is then stored in a MongoDB database for further analysis or integration into other applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ./src/index.js",
+    "build:css": "tailwindcss build styles.css -o output.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.8.3",
+    "electron": "^26.3.0",
+    "electron-rebuild": "^3.2.9"
+  },
+  "dependencies": {
+    "mongodb": "^6.1.0",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "python-shell": "^5.0.0",
+    "tailwindcss": "^3.3.3"
+  }
+}

@@ -15,7 +15,7 @@ DOWNLOAD_DELAY = 1
 RANDOMIZE_DOWNLOAD_DELAY = True
 
 # Obey robots.txt rules (Change based on your needs and the website's terms)
-ROBOTSTXT_OBEY = False
+ROBOTSTXT_OBEY = True
 
 # Database configuration
 MONGO_URI = 'mongodb://localhost:27017/'
